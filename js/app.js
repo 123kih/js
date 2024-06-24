@@ -8,6 +8,7 @@ document.querySelector('#test').appendChild(pTag)
 var pTag2 = '<p>태그 생성2</p>';
 document.querySelector('#test').insertAdjacentHTML("beforeend", pTag2);
 
+
 var pantsSize = [26,28,30,32,34];
 var shirtSize = [95,100,105,110];
 
