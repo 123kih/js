@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="alert1" class="alert-box">
+        알림창
+        <button onclick="alertControl2('alert1','none')">닫기</button>
+    </div>
+    <div id="alert2" class="alert-box" style="background: black;">
+        알림창
+        <button onclick="alertControl2('alert2','none')">닫기</button>
+    </div>
+    <button onclick="alertControl('block')">알림창 오픈!</button>
+
+
+    <script>
+
+        function alertControl(파라미터1){
+            document.getElementById('alert1').style.display = 파라미터1;
+            document.getElementById('alert2').style.display = 파라미터1;
+        }
+
+        function alertControl2(id, display){
+            document.getElementById(id).style.display = display;
+        }
+
+    </script>
+</body>
+</html>

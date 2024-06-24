@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="quiz">
+        <h4>물에 빠지면 누구먼저 구할 것임?</h4>
+        <button>친구</button>
+        <button>부모님</button>
+        <button>반려동물</button>
+    </div>
+
+
+    <script>
+
+    function getFee(isMember){
+        return isMember ? '$2.00' : '$10.00'
+
+    }
+
+    console.log(getFee(true)) // $2.00
+    console.log(getFee(false)) // $10.00
+    console.log(getFee(null)) // $10.00
+
+
+    $("#quiz").click(function (e){
+        switch (e.target.innerHTML){
+            case '친구' :
+                alert("인싸임");
+                break
+            case '부모님' :
+                alert("효자임");
+                break
+            case '반려동물' :
+                alert("친구없음");
+                break
+        }
+    })
+
+
+    let 변수 = 1 + 2 ;
+    // switch(변수) {
+    //     case 3:
+    //         alert('변수 3');
+    //         break
+    //     case 4 :
+    //         alert('변수는 4');
+    //         break
+    //     case 5 :
+    //         alert('변수는 5');
+    //         break
+    //     default :
+    //         alert('아무것도 해당안됨');
+    //         break
+    // }
+
+    //if 문은 다양한 조건식이 가능
+    //switch 변수 1개만 테스트가 가능
+
+
+
+    </script>
+</body>
+</html>

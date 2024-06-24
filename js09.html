@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Offcanvas navbar</a>
+            <span class="badge bg-dark">Dark Mode 🌛</span>
+            <button class="navbar-toggler" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <button id="loginBtn" class="btn btn-primary">로그인</button>
+    <div class="alert alert-danger">
+        <span class="sec">5</span>초 이내에 구매 시 사은품 증정!
+    </div>
+    <div style="overflow: hidden;">
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="img/pink.PNG">
+            </div>
+            <div class="slide-box">
+                <img src="img/blue.PNG">
+            </div>
+            <div class="slide-box">
+                <img src="img/black.PNG">
+            </div>
+        </div>
+    </div>
+    <button class="prev">이전</button>
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button class="next">다음</button>
+
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit
+        debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur
+        praesentium exercitationem.
+    </div>
+    <div style="height: 1000px;"></div>
+
+    <div class="black-bg1">
+        <div class="white-bg">
+            <h4>로그인하세요</h4>
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                <button type="button" class="btn btn-danger" id="close">닫기</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+        //badge 클릭 시 글자를 Dark > Light 변경
+
+        // setTimeout(function () {
+        //     console.log('3초뒤 실행');
+        // }, 3000)
+
+        // setInterval(function () {
+        //     console.log('3초마다 실행');
+        // }, 3000)
+
+        // setTimeout(function(){
+        //     $('.alert').hide();
+        // },5000)
+
+        // setTimeout(alertHide(),5000);
+
+        // function alertHide(){
+        //     $('.alert').hide();
+        // } 위에 setTimeout과 동일
+
+        // function fun1(){
+        //     console.log('1');
+        //     return 123;
+
+        //     console.log('2');
+        // }
+
+        // var variable=fun1();
+        // console.log(variable);
+
+        // function vat(price){
+        //     return parseInt((price*0.1).toFixed(3));
+        // }
+        //parseInt = 정수로 변환
+        //parseFloat = 실수로 변환
+
+        // console.log(vat(10000));
+        // console.log(vat(55555.55));
+
+        $(window).scrollTop(100); //스크롤바 수직위치 지정100px
+        $(window).on('scroll', function () {
+            console.log($(window).scrollTop()); //현재위치 출력
+            if (window.scrollY > 100) {
+                $('.navbar-brand').css('font-size', 20);
+            } else if (window.scrollY < 100) {
+                $('.navbar-brand').css('font-size', 30);
+            }
+        })
+        
+        //스크롤 내린양
+        $('.lorem').on('scroll',function(){
+            var scroll=document.querySelector('.lorem').scrollTop;
+            var height=document.querySelector('.lorem').scrollHeight;
+            var clientHeight=document.querySelector('.lorem').clientHeight;
+
+            console.log(scroll,' :::',height,' :::',clientHeight);
+
+            if((scroll+clientHeight)>=height){
+                alert('다읽음');
+            }
+            // document.querySelector('.lorem').scrollHeight;
+        });
+
+        // window.scrollTo(0,500) //강제로 스크롤하기
+        // window.scrollBy(0,500) //현재 위치에서 x,y만큼 스크롤하기
+
+        // window.addEventListener('scroll',function(){
+        //     console.log(window.scrollY); //Y축 스크롤
+        //     console.log(window.scrollX); //X축 스크롤
+        //     console.log(window.pageXOffset); //Y축 스크롤 레거시
+        // })
+
+        function msCalc(min, sec) {
+            return (min * 60 * 1000) + (sec * 1000);
+        }
+
+        console.log(msCalc(1, 30));
+        console.log(msCalc(2, 50));
+
+        function price(money) {
+            return parseFloat(money * 0.85 / 10) * 10;
+        }
+
+        console.log(price(25000));
+
+        $('.slide-1').on('click', function () {
+            $('.slide-container').css('transform', 'translateX(0vw)');
+            picture = 1;
+        })
+        $('.slide-2').on('click', function () {
+            $('.slide-container').css('transform', 'translateX(-100vw)');
+            picture = 2;
+        })
+
+        $('.slide-3').on('click', function () {
+            $('.slide-container').css('transform', 'translateX(-200vw)');
+            picture = 3;
+        })
+
+        var picture = 1;
+
+        $('.prev').on('click', function () {
+            console.log('이전버튼클릭');
+            if (picture == 3) {
+                $('.slide-container').css('transform', 'translateX(-100vw)');
+                picture--;
+            } else if (picture == 2) {
+                $('.slide-container').css('transform', 'translateX(0vw)');
+                picture--;
+            }
+            // $('.slide-container').css('transform', 'translateX(-' + (picture - 2) + '00vw)');
+            // picture--;
+        })
+
+
+        $('.next').on('click', function () {
+            console.log('다음버튼클릭');
+            if (picture == 1) {
+                $('.slide-container').css('transform', 'translateX(-100vw)');
+                picture++;
+            } else if (picture == 2) {
+                $('.slide-container').css('transform', 'translateX(-200vw)');
+                picture++;
+            }
+            //     // $('.slide-container').css('transform', 'translateX(-'+picture+'00vw)');
+            //     // picture++;
+        })
+        var second = 5;
+        var timer = function () {
+            second--;
+            console.log(second);
+            $('.sec').html(second);
+            if (second > 0) {
+                $('.sec').html(second);
+            } else if (second === 0) {
+                $('.alert').hide();
+                clearInterval(timerVar);
+            }
+        }
+        var timerVar = setInterval(timer, 1000);
+
+        //아이디@gmail.com
+
+        //'문자열'.includes('찾을단어');
+        console.log('abcde'.includes('a'));
+        console.log(/naver/.test('id@gmail.com'));
+
+
+        $('.navbar-toggler').on('click', function () {
+            console.log('jquery 이벤트 동작');
+            $('.list-group').toggleClass('lg-open');
+        })
+        var count = 0;
+        $('.badge').on('click', function () {
+            count++;
+            // count += 1;
+            // count = count+1;
+            console.log(count);
+            console.log(count % 2);
+
+            if (count % 2 === 0) {
+                $('.badge').html('Dark 🌛');
+                $('.badge').addClass('bg-dark');
+                $('.badge').removeClass('bg-light');
+                $('.badge').css('color', '#fff');
+
+                $('.navbar').removeClass('navbar-dark');
+                $('.navbar').removeClass('bg-dark');
+                $('.navbar').addClass('navbar-light');
+                $('.navbar').addClass('bg-light');
+
+            } else if (count % 2 === 1) {
+                $('.badge').html('Light 🌞');
+                $('.badge').addClass('bg-light');
+                $('.badge').removeClass('bg-dark');
+                $('.badge').css('color', '#222');
+
+                $('.navbar').addClass('navbar-dark');
+                $('.navbar').addClass('bg-dark');
+                $('.navbar').addClass('navbar-light');
+                $('.navbar').addClass('bg-light');
+            }
+
+        });
+        $('#loginBtn').on('click', function () {
+
+            console.log('로그인 버튼 클릭!');
+            $('.black-bg1').addClass('show-modal1');
+        })
+
+
+        $('#close').on('click', function () {
+            console.log('닫기 버튼 클릭!');
+            $('.black-bg1').removeClass('show-modal1');
+        })
+
+        var regExp = /^([\w\.\_\-])*[a-zA-Z0-9]+([\w\.\_\-])*([a-zA-Z0-9])+([\w\.\_\-])+@([a-zA-Z0-9]+\.)+[a-zA-Z0-9]{2,8}$/i;
+
+        $('#submit').on('click', function (e) {
+            if ($('#email').val() == '') {
+                alert('아이디를 입력하세요.');
+                e.preventDefault();
+                $('#email').focus();
+                //event의 기본동작을 막는 코드
+                //form submit 버튼의 기본동작은 submit
+            } else if ($('#pwd').val() == '') {
+                alert('비밀번호를 입력하세요.');
+                $('#pwd').focus();
+                e.preventDefault();
+            } else if ($('#pwd').val().length < 4) {
+
+                console.log($('#pwd').val());
+                console.log($('#pwd').val().length);
+                alert('4자리 이상 입력하세요');
+                $('#pwd').focus();
+                e.preventDefault();
+            }
+            if (!regExp.test($('#email').val())) {
+                alert("이메일 형식을 확인해주세요");
+                e.preventDefault();
+            }
+        })
+
+
+
+        //조건문
+        // if(조건식1){
+        //     //조건식 1을 만족할때 실행 할 코드
+        // }
+        // else{
+        //     //조건문1을 만족하지 않을 때
+        //     alert('alert 띄울 문구');
+        // }
+
+        //다중 조건문
+        //if(조건1){
+
+        // }else if(조건2){
+
+        // }else if(조건3){
+
+        // }...else{
+
+        // }
+        // $('#submit').on('click',function(e){
+        //     if($('#email').val()==''){
+        //         alert('아이디를 입력하세요.');
+        //         e.preventDefault();
+        //         //event의 기본동작을 막는 코드
+        //         //form submit 버튼의 기본동작은 submit
+        //     }else if($('#pwd').val()==''){
+        //         alert('비밀번호를 입력하세요.');
+        //         e.preventDefault();
+        //     }
+        // })
+        // $('#email').on('input', function () {
+        //     console.log("ID입력됨");
+        // });
+
+        // $('#email').on('change', function () {
+        //     console.log("변경됨");
+        // });
+
+        // $('#pwd').on('input', function () {
+        //     console.log("PWD입력됨");
+        // });
+
+        // $('#pwd').on('change', function () {
+        //     console.log("변경됨");
+        // });
+
+        // =:대입연산자(오른쪽의 값을 왼쪽에 넣음)
+        // ==:동등비교 연산자(왼쪽과 오른쪽의 값이 같은지 비교하는 연산자)
+        // input의 빈 값은 null이 아니라 ''이다
+        // ($('#email').val()이 비어있으면 true 들어있으면 false이다
+        // != : 왼쪽과 오른쪽의 값이 다른지 비교하는 연산자
+        // ===일치비교 연산자 : 왼쪽과 오른쪽의 값, 타입이 같은지 비교하는 연산자
+
+        // var a=1;
+        // var b='1';
+
+        // console.log(a==b); //true 느슨한 비교
+        // console.log(a===b); //false 엄격한 비교
+
+        // if(1){
+        //     //무조건 실행
+        // }
+
+        // if(0){
+        //     //무조건 실행 안됨
+        // }
+
+        // if(조건1 && 조건2){
+        //     //조건1과 조건2가 참일 때 실행
+        // }
+
+        // if(조건1 || 조건2){
+        //     //조건1이나 조건2가 참일 때 실행
+        // }
+        // if(2%2==0){
+        //     //2를2로나눈 나머지가 0이면 실행
+        // }
+
+        // if(2%n==0){
+        //     //짝수
+        // }
+        // if(2%n==1){
+        //     //홀수
+        // }
+
+        //변수선언
+        var 이름;//변수 선언
+        이름 = 'lee';//할당
+
+        var 이름1 = 'kim';
+        이름1 = 'park';//재할당
+
+        var 이름1 = 'lee';
+        console.log(이름1);
+        //변수는 재선언 재할당 모두 가능
+
+        //변수의 범위
+        function 함수명() {
+            var name = 'kim';
+            console.log(name);
+        }
+
+        함수명();
+    </script>
+</body>
+
+</html>

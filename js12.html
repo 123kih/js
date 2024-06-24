@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 와 Object</title>
+</head>
+
+<body>
+
+<script>
+    // var car='셀토스';
+    // var carPrice='2700';
+    // var carColor='white';
+
+    //array
+    var car = ['셀토스', 2700, 'white'];
+    // for (var i = 0; i < car.length; i++) {
+    //     console.log(car[i]);
+    // }
+    console.log(car[0]);
+    console.log(car[1]);
+    console.log(car[2]);
+
+    //array변경
+    car[0] = '페라리';
+    console.log(car[0]);
+
+    //데이터 추가
+    car[3] = '옵션';
+    console.log(car[3]);
+
+    //object
+    //key :value
+    var car2 = {name: '셀토스', price: 2700, color: 'white'};
+
+    //object 데이터 가져오기
+    console.log(car2);
+    console.log(car2.name);
+    console.log(car2.price);
+    console.log(car2.color);
+
+    //object 데이터 변경
+    car2.name = '페라리';
+    console.log(car2.name);
+
+    //object 데이터 추가
+    car2.option = '엉뜨';
+    console.log(car2.option);
+
+    //Array 안에 Array,Object 담을수도있고
+    //Object 안에 Array,Object 담을수도 있다.
+
+    var carCollection = [
+        {name: '셀토스', price: 2700},
+        {name: '페라리', price: 15000},
+        {name: '람보르기니', price: 27000}
+    ]
+
+    console.log(carCollection[1].price);
+    console.log(carCollection[1]);
+
+    var collection = {
+        car: ['셀토스', 2700, 'white'],
+        coin: ['비트코인', 100]
+    }
+    console.log(collection.car);
+    console.log(collection.coin[1]);
+</script>
+</body>
+
+</html>

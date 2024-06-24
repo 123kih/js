@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Offcanvas navbar</a>
+            <span class="badge bg-dark">Dark Mode 🌛</span>
+            <button class="navbar-toggler" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <button id="loginBtn" class="btn btn-primary">로그인</button>
+
+    <div class="black-bg1">
+        <div class="white-bg">
+            <h4>로그인하세요</h4>
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                <button type="button" class="btn btn-danger" id="close">닫기</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+ //badge 클릭 시 글자를 Dark > Light 변경
+
+
+        $('.navbar-toggler').on('click', function () {
+            console.log('jquery 이벤트 동작');
+            $('.list-group').toggleClass('lg-open');
+        })
+        var count=0;
+        $('.badge').on('click',function(){
+            count++;
+        })
+
+        if(count%2===0){
+            
+        }
+        $('#loginBtn').on('click', function () {
+
+            console.log('로그인 버튼 클릭!');
+            $('.black-bg1').addClass('show-modal1');
+        })
+
+
+        $('#close').on('click', function () {
+            console.log('닫기 버튼 클릭!');
+            $('.black-bg1').removeClass('show-modal1');
+        })
+
+        $('#submit').on('click', function (e) {
+            if ($('#email').val() == '') {
+                alert('아이디를 입력하세요.');
+                e.preventDefault();
+                $('#email').focus();
+                //event의 기본동작을 막는 코드
+                //form submit 버튼의 기본동작은 submit
+            } else if ($('#pwd').val() == '') {
+                alert('비밀번호를 입력하세요.');
+                $('#pwd').focus();
+                e.preventDefault();
+            } else if ($('#pwd').val().length < 4) {
+                console.log($('#pwd').val());
+                console.log($('#pwd').val().length);
+                alert('4자리 이상 입력하세요');
+                $('#pwd').focus();
+                e.preventDefault();
+            }
+        })
+
+
+
+        //조건문
+        // if(조건식1){
+        //     //조건식 1을 만족할때 실행 할 코드
+        // }
+        // else{
+        //     //조건문1을 만족하지 않을 때
+        //     alert('alert 띄울 문구');
+        // }
+
+        //다중 조건문
+        //if(조건1){
+
+        // }else if(조건2){
+
+        // }else if(조건3){
+
+        // }...else{
+
+        // }
+        // $('#submit').on('click',function(e){
+        //     if($('#email').val()==''){
+        //         alert('아이디를 입력하세요.');
+        //         e.preventDefault();
+        //         //event의 기본동작을 막는 코드
+        //         //form submit 버튼의 기본동작은 submit
+        //     }else if($('#pwd').val()==''){
+        //         alert('비밀번호를 입력하세요.');
+        //         e.preventDefault();
+        //     }
+        // })
+        // $('#email').on('input', function () {
+        //     console.log("ID입력됨");
+        // });
+
+        // $('#email').on('change', function () {
+        //     console.log("변경됨");
+        // });
+
+        // $('#pwd').on('input', function () {
+        //     console.log("PWD입력됨");
+        // });
+
+        // $('#pwd').on('change', function () {
+        //     console.log("변경됨");
+        // });
+
+        // =:대입연산자(오른쪽의 값을 왼쪽에 넣음)
+        // ==:동등비교 연산자(왼쪽과 오른쪽의 값이 같은지 비교하는 연산자)
+        // input의 빈 값은 null이 아니라 ''이다
+        // ($('#email').val()이 비어있으면 true 들어있으면 false이다
+        // != : 왼쪽과 오른쪽의 값이 다른지 비교하는 연산자
+        // ===일치비교 연산자 : 왼쪽과 오른쪽의 값, 타입이 같은지 비교하는 연산자
+
+        // var a=1;
+        // var b='1';
+
+        // console.log(a==b); //true 느슨한 비교
+        // console.log(a===b); //false 엄격한 비교
+
+        // if(1){
+        //     //무조건 실행
+        // }
+
+        // if(0){
+        //     //무조건 실행 안됨
+        // }
+
+        // if(조건1 && 조건2){
+        //     //조건1과 조건2가 참일 때 실행
+        // }
+
+        // if(조건1 || 조건2){
+        //     //조건1이나 조건2가 참일 때 실행
+        // }
+        // if(2%2==0){
+        //     //2를2로나눈 나머지가 0이면 실행
+        // }
+        
+        // if(2%n==0){
+        //     //짝수
+        // }
+        // if(2%n==1){
+        //     //홀수
+        // }
+
+    </script>
+</body>
+
+</html>
